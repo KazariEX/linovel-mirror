@@ -23,5 +23,5 @@ logs
 .env.*
 !.env.example
 
-data/book
-data/pages
+data/*
+!data/.gitkeep
