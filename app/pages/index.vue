@@ -9,7 +9,7 @@
 
     const { status, data } = useFetch("/api/books", {
         query: {
-            first,
+            first: computed(() => first.value)/* 防止重复触发请求 */,
             count
         }
     });
