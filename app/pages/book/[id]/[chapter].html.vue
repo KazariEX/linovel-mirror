@@ -11,7 +11,7 @@
     <template v-if="status === `success`">
         <header m="b-4" text="center">
             <h1 m="b-2" text="6">{{ data?.title }}</h1>
-            <span text="3.5">更新时间：{{ data?.updateTime }}</span>
+            <span text="3.5 slate">更新时间：{{ data?.updateTime }}</span>
         </header>
         <article
             class="article"

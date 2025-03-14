@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-    const count = 30;
+    const count = 24;
     const first = useRouteQuery("page", "1" as string, {
         transform: {
             get: (val) => (Number.parseInt(val) - 1) * count,
@@ -18,8 +18,8 @@
 <template>
     <ul v-if="status === `success`" grid="~ gap-6">
         <book-item
-            v-for="val, id in data?.list"
-            v-bind="val"
+            v-for="info, id in data?.list"
+            v-bind="info"
             :id
         />
     </ul>

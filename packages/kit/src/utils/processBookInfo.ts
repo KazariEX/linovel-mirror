@@ -21,6 +21,7 @@ export interface VolumeInfo {
 export interface ChapterInfo {
     title: string;
     link: string;
+    exist?: boolean;
 }
 
 export async function processBookInfo(id: number) {

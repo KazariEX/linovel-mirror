@@ -11,24 +11,11 @@
         <h1 text="8">{{ data?.title }}</h1>
         <p
             m="t-4 b-8"
-            leading="6"
+            leading="relaxed"
             v-html="enrichText(data?.description ?? ``)"
         ></p>
-        <ul grid="~ gap-8">
-            <li v-for="{ title, cover, chapters } in data?.volumes">
-                <div flex="~ gap-4 items-start">
-                    <nuxt-img w="32" :src="cover"/>
-                    <h2 m="b-4" text="5 center">{{ title }}</h2>
-                </div>
-                <ul grid="~ cols-2" m="t-4" leading="8">
-                    <li v-for="{ title, link } in chapters">
-                        <nuxt-link
-                            un-text="hover:blue"
-                            :to="link"
-                        >{{ title }}</nuxt-link>
-                    </li>
-                </ul>
-            </li>
+        <ul>
+            <volume-item v-for="info in data?.volumes" v-bind="info"/>
         </ul>
     </template>
 </template>
