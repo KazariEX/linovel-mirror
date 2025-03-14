@@ -1,0 +1,11 @@
+{
+  "name": "@linovel/kit",
+  "private": true,
+  "main": "./src/index.ts",
+  "dependencies": {
+    "consola": "^3.4.0",
+    "node-html-parser": "^7.0.1",
+    "ofetch": "^1.4.1",
+    "unstorage": "^1.15.0"
+  }
+}
