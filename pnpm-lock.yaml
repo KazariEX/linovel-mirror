@@ -17,6 +17,9 @@ importers:
       '@vueuse/core':
         specifier: ^13.0.0
         version: 13.0.0(vue@3.5.13(typescript@5.5.4))
+      '@vueuse/router':
+        specifier: ^13.0.0
+        version: 13.0.0(vue-router@4.5.0(vue@3.5.13(typescript@5.5.4)))(vue@3.5.13(typescript@5.5.4))
       primevue:
         specifier: ^4.3.2
         version: 4.3.2(vue@3.5.13(typescript@5.5.4))
@@ -1372,6 +1375,12 @@ packages:
     peerDependencies:
       nuxt: ^3.0.0 || ^4.0.0-0
       vue: ^3.5.0
+
+  '@vueuse/router@13.0.0':
+    resolution: {integrity: sha512-O5H4qdovhkNa4LoNTLNMLaf1JXEfDL88jv7FM/QOB1uksbD2PiV9sGFKksS73hrAkxkV8wYUW3NAW4B75Fb47g==}
+    peerDependencies:
+      vue: ^3.5.0
+      vue-router: ^4.0.0
 
   '@vueuse/shared@13.0.0':
     resolution: {integrity: sha512-9MiHhAPw+sqCF/RLo8V6HsjRqEdNEWVpDLm2WBRW2G/kSQjb8X901sozXpSCaeLG0f7TEfMrT4XNaA5m1ez7Dg==}
@@ -6178,6 +6187,12 @@ snapshots:
       vue: 3.5.13(typescript@5.5.4)
     transitivePeerDependencies:
       - magicast
+
+  '@vueuse/router@13.0.0(vue-router@4.5.0(vue@3.5.13(typescript@5.5.4)))(vue@3.5.13(typescript@5.5.4))':
+    dependencies:
+      '@vueuse/shared': 13.0.0(vue@3.5.13(typescript@5.5.4))
+      vue: 3.5.13(typescript@5.5.4)
+      vue-router: 4.5.0(vue@3.5.13(typescript@5.5.4))
 
   '@vueuse/shared@13.0.0(vue@3.5.13(typescript@5.5.4))':
     dependencies:

@@ -1,9 +1,16 @@
 <script lang="ts" setup>
-    const page = ref(1);
+    const count = 30;
+    const first = useRouteQuery("page", "1" as string, {
+        transform: {
+            get: (val) => (Number.parseInt(val) - 1) * count,
+            set: (val) => (val / count + 1).toString()
+        }
+    });
 
     const { status, data } = useFetch("/api/books", {
         query: {
-            page
+            first,
+            count
         }
     });
 </script>
@@ -18,8 +25,8 @@
     </ul>
     <prime-paginator
         m="t-2"
-        :rows="30"
+        :rows="count"
         :total-records="data?.total"
-        v-model:first="page"
+        v-model:first="first"
     />
 </template>
