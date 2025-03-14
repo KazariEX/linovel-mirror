@@ -24,6 +24,7 @@
     .article {
         p {
             line-height: 2rem;
+            text-indent: 2em;
         }
     }
 </style>

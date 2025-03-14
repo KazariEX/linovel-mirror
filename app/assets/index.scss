@@ -22,3 +22,37 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
+.no-scrollbar {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.edge-fades-x {
+    overflow-x: auto;
+    animation-name: edge-fades;
+    animation-timeline: scroll(x self);
+}
+
+.edge-fades-y {
+    overflow-y: auto;
+    animation-name: edge-fades;
+    animation-timeline: scroll(y self);
+}
+
+@keyframes edge-fades {
+    0% {
+        mask-image: linear-gradient(to right, white calc(100% - 2rem), transparent);
+    }
+
+    1%, 99% {
+        mask-image: linear-gradient(to right, transparent, white 2rem, white calc(100% - 2rem), transparent);
+    }
+
+    100% {
+        mask-image: linear-gradient(to right, transparent, white 2rem);
+    }
+}

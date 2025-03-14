@@ -11,10 +11,14 @@ export default defineNuxtConfig({
     future: {
         compatibilityVersion: 4
     },
+    ignore: [
+        "data/**/*"
+    ],
     ssr: false,
     modules: [
         "@nuxt/icon",
         "@nuxt/image",
+        "@primevue/nuxt-module",
         "@unocss/nuxt",
         "@vueuse/nuxt"
     ],
@@ -25,5 +29,16 @@ export default defineNuxtConfig({
         domains: [
             "rin.linovel.net"
         ]
+    },
+    primevue: {
+        components: {
+            prefix: "Prime"
+        },
+        importTheme: {
+            from: "~/themes/index.ts"
+        },
+        options: {
+            ripple: true
+        }
     }
 });
