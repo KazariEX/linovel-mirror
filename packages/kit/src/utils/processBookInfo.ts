@@ -7,6 +7,8 @@ export interface BookInfo {
     title: string;
     categorys: string[];
     description: string;
+    novelist: string;
+    illustrator?: string;
     volumes: VolumeInfo[];
 }
 
@@ -61,6 +63,7 @@ function parseBookInfo(res: string): BookInfo {
             title: "",
             categorys: [],
             description: "",
+            novelist: "",
             volumes: []
         };
     }
@@ -73,6 +76,12 @@ function parseBookInfo(res: string): BookInfo {
 
     const descEl = doc.querySelector(".about-text")!;
     const description = descEl.textContent;
+
+    const novelistEl = doc.querySelector(".novelist > .name > a")!;
+    const novelist = novelistEl.textContent;
+
+    const illustratorEl = doc.querySelector(".illustrator > .name > a");
+    const illustrator = illustratorEl?.textContent;
 
     const volumeEls = doc.querySelectorAll(".section-list > .section");
     const volumes = volumeEls.map((el) => {
@@ -109,6 +118,8 @@ function parseBookInfo(res: string): BookInfo {
         title,
         categorys,
         description,
+        novelist,
+        illustrator,
         volumes
     };
 }

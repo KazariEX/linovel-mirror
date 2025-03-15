@@ -16,7 +16,7 @@ export const useProcessStore = defineStore("process", () => {
         optimisticData.value = data;
         status.value = true;
 
-        es = new EventSource(`/update/${id}`);
+        es = new EventSource(`/process/${id}`);
         es.onmessage = (event) => {
             const { volumeIndex, chapterIndex } = JSON.parse(event.data) as {
                 volumeIndex: number;

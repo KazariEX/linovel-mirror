@@ -19,8 +19,15 @@
 <template>
     <template v-if="displayData">
         <h1 text="8">{{ displayData.title }}</h1>
+        <div m="y-2" text="3.5">
+            <span>
+                <span text="slate">作者：</span>{{ displayData.novelist }}
+            </span>
+            <span v-if="displayData.illustrator" m="l-4">
+                <span text="slate">画师：</span>{{ displayData.illustrator }}
+            </span>
+        </div>
         <p
-            m="t-4"
             leading="relaxed"
             v-html="enrichText(displayData.description ?? ``)"
         ></p>

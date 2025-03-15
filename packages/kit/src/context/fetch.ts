@@ -54,7 +54,7 @@ export async function fetchPage(
     const canTransform = typeof res === "string";
     const hasTransformed = canTransform && res.startsWith(TRANSFORMED);
 
-    let data = "";
+    let data = res;
 
     if (canTransform && !hasTransformed || forceTransform) {
         data = TRANSFORMED + transform(res.replace(TRANSFORMED, ""));
