@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     modules: [
         "@nuxt/icon",
         "@nuxt/image",
+        "@pinia/nuxt",
         "@primevue/nuxt-module",
         "@unocss/nuxt",
         "@vueuse/nuxt"

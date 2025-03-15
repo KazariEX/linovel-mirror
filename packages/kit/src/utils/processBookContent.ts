@@ -10,10 +10,16 @@ export interface BookContent {
     rawText: string;
 }
 
-export async function processBookContent(id: number, info: BookInfo) {
-    let dirty = false;
-    for (const { chapters } of info.volumes) {
-        for (const chapter of chapters) {
+export async function processBookContent(
+    id: number,
+    info: BookInfo,
+    onParsed?: (volumeIndex: number, chapterIndex: number) => void
+) {
+    for (let i = 0; i < info.volumes.length; i++) {
+        const { chapters } = info.volumes[i]!;
+
+        for (let j = 0; j < chapters.length; j++) {
+            const chapter = chapters[j]!;
             const { link } = chapter;
             const res = await fetchPage(link, {}, transformBookContent, {
                 reserveResponse: false
@@ -28,15 +34,11 @@ export async function processBookContent(id: number, info: BookInfo) {
 
             if (content === null) {
                 content = parseBookContent(res);
-                consola.success(`parse ${key}`);
                 await storage.setItem(key, content);
-                chapter.exist = true;
-                dirty = true;
+                consola.success(`parse ${key}`);
+                onParsed?.(i, j);
             }
         }
-    }
-    if (dirty) {
-        await storage.setItem(`/book/${id}/metadata.json`, info);
     }
 }
 

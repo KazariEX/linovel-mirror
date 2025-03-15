@@ -1,7 +1,12 @@
 <script setup lang="ts">
     import type { VolumeInfo } from "@linovel/kit";
 
-    defineProps<VolumeInfo>();
+    defineProps<VolumeInfo & {
+        bookId: number;
+        index: number;
+    }>();
+
+    const processStore = useProcessStore();
 </script>
 
 <template>
@@ -24,12 +29,17 @@
                 :class="{
                     [`text-slate pointer-events-none`]: !exist
                 }"
+                flex="~ items-center gap-1"
             >
-                <span m="r-1" text="slate">{{ i }}.</span>
+                <span text="slate">{{ i }}.</span>
                 <nuxt-link
                     un-text="hover:blue"
                     :to="link"
                 >{{ title }}</nuxt-link>
+                <iconify
+                    v-if="processStore.status && processStore.processId === bookId && !exist"
+                    name="line-md:loading-twotone-loop"
+                />
             </li>
         </ul>
     </li>
